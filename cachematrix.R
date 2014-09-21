@@ -15,11 +15,13 @@
 ## get the value of the inverse
 ##
 ## because these functions are created in the makeCacheMatrix function, 
-## the matrix 'x' and mean 'm' will be free variables in the environment 
-## of these four functions. However, the set-functions ('set' and 'setinv')
-## will not be called from within the makeCacheMatrix environment but
-## from the environment in which the list object is created (usually this is the global environment).
-## therefore, the operator '<<-' is used to assign the input arguments to the free variables.
+## the matrices 'x' and 'inv' will be free variables in the environment 
+## of these four functions. However, the functions are returned in a 
+## list object when makeCacheMatrix is called.
+## Therefore, the set-functions ('set' and 'setinv') will be called
+## with an input argument from the environment of the list object which is
+## different from the environment of these functions.
+## Hence, the operator '<<-' is used to assign the input arguments to the free variables.
 ##
 
 makeCacheMatrix <- function(x = matrix()) {
